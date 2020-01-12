@@ -56,7 +56,9 @@ public class Client {
 
         FileOutputStream fos = new FileOutputStream("ClientData/"+fileName);
         BufferedOutputStream bos = new BufferedOutputStream(fos);
-        bos.write(is.readNBytes(dataSize));
+        byte[] fileContent = is.readNBytes(dataSize);
+        System.out.println(fileContent + " - " + fileContent.length);
+        bos.write(fileContent,0,fileContent.length);
         bos.flush();
         fos.close();
         bos.close();

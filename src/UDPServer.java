@@ -57,7 +57,7 @@ public class UDPServer {
                     e.printStackTrace();
                 }
 
-                File file = new File("ServerData/HelloWorld");
+                File file = new File("ServerData/Lenna.png");
                 String fileName = file.getName();
                 int fileSize = (int) file.length();
                 byte[] dataFileByte = new byte[fileSize];
@@ -69,8 +69,10 @@ public class UDPServer {
                 System.out.println("Sending Data Name and Size: " + fileName + " " + fileSize);
                 out.println(fileName);
                 out.println(fileSize);
+                System.out.println(dataFileByte + "--" + dataFileByte.length);
                 s.getOutputStream().write(dataFileByte,0,fileSize);
                 s.close();
+                bis.close();
             }
             catch (Exception e) {
                 e.printStackTrace();
